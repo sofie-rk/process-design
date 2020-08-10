@@ -7,8 +7,10 @@ import matplotlib.pylab as plt
 def cstr(x, t, xin=1000, tau=11.1):
     '''
     Inputs:
-        x:
-        t:
+        x:      mole-fraction array (needed for odeint)
+        t:      t-values array (needed for odeint)
+
+        xin:    inlet mole fraction
         tau:    residence time
 
     Outputs:
@@ -20,7 +22,8 @@ def cstr(x, t, xin=1000, tau=11.1):
 xin = 1000
 time_end = 0.5                              # leak for 0.5 hour
 t_interval = np.linspace(0, time_end)       # [hours]
-x0 = np.array([100])
+x0 = np.array([100])                        # initial condition
+
 
 # odeint takes in:  cstr:   right hand side of the ODE
 #                   x0:     initial value
